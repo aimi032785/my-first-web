@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的个人介绍网站</title>
+  <title>中考学习记录站</title>
   <style>
     * {
       box-sizing: border-box;
@@ -17,25 +17,26 @@
       min-height: 100vh;
       margin: 0;
       background:
-        radial-gradient(circle at top left, rgba(125, 210, 255, 0.42), transparent 34rem),
-        linear-gradient(180deg, #dff3ff 0%, #f4fbff 100%);
+        radial-gradient(circle at top left, rgba(255, 208, 125, 0.34), transparent 32rem),
+        radial-gradient(circle at bottom right, rgba(125, 210, 255, 0.38), transparent 30rem),
+        linear-gradient(180deg, #fff8e8 0%, #eef8ff 100%);
       font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
-      color: #12324a;
+      color: #16324a;
     }
 
     .site-nav {
       position: sticky;
       top: 18px;
       z-index: 10;
-      width: min(92%, 880px);
+      width: min(92%, 920px);
       margin: 28px auto 0;
       padding: 14px 18px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 14px;
-      background: rgba(255, 255, 255, 0.76);
-      border: 1px solid rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.95);
       border-radius: 999px;
       box-shadow: 0 12px 30px rgba(74, 144, 176, 0.16);
       backdrop-filter: blur(10px);
@@ -53,12 +54,12 @@
 
     .site-nav a:hover {
       transform: translateY(-1px);
-      background: #eaf8ff;
+      background: #fff3d6;
       color: #12324a;
     }
 
     .page-shell {
-      width: min(92%, 1040px);
+      width: min(92%, 1080px);
       margin: 36px auto 0;
       display: grid;
       gap: 28px;
@@ -66,8 +67,8 @@
 
     .hero-card,
     .content-section {
-      background: rgba(255, 255, 255, 0.84);
-      border: 1px solid rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.94);
       border-radius: 28px;
       box-shadow: 0 22px 55px rgba(74, 144, 176, 0.2);
       backdrop-filter: blur(10px);
@@ -76,14 +77,14 @@
     .hero-card {
       padding: clamp(42px, 7vw, 76px) clamp(24px, 6vw, 64px);
       display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
+      grid-template-columns: 1.35fr 0.85fr;
       align-items: center;
       gap: 32px;
     }
 
     .eyebrow {
       margin: 0 0 14px;
-      color: #1f8fd7;
+      color: #f08a24;
       font-size: 0.98rem;
       font-weight: 800;
       letter-spacing: 0.16em;
@@ -98,10 +99,10 @@
 
     h1 {
       margin-bottom: 18px;
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-size: clamp(2.5rem, 6vw, 4.7rem);
       font-weight: 800;
       letter-spacing: 0.04em;
-      background: linear-gradient(120deg, #12324a, #1f8fd7);
+      background: linear-gradient(120deg, #12324a, #1f8fd7, #f08a24);
       background-clip: text;
       color: transparent;
     }
@@ -137,9 +138,9 @@
     }
 
     .secondary-link {
-      background: #eaf8ff;
-      color: #1c6fa6;
-      border: 1px solid #bfe7ff;
+      background: #fff5da;
+      color: #b85f00;
+      border: 1px solid #ffd891;
     }
 
     .start-button:hover,
@@ -152,15 +153,37 @@
       box-shadow: 0 14px 28px rgba(47, 159, 232, 0.36);
     }
 
-    .profile-badge {
-      min-height: 260px;
+    .study-badge {
+      min-height: 270px;
+      padding: 28px;
       display: grid;
       place-items: center;
       border-radius: 28px;
-      background: linear-gradient(145deg, #bfe7ff, #f2fbff);
-      color: #1c6fa6;
-      font-size: clamp(4rem, 12vw, 7rem);
+      background: linear-gradient(145deg, #bfe7ff, #fff2cc);
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+    }
+
+    .badge-board {
+      width: 100%;
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px dashed rgba(28, 111, 166, 0.35);
+      text-align: center;
+    }
+
+    .badge-board strong {
+      display: block;
+      color: #1c6fa6;
+      font-size: clamp(2.6rem, 8vw, 4.8rem);
+      line-height: 1;
+    }
+
+    .badge-board span {
+      display: block;
+      margin-top: 14px;
+      color: #365b73;
+      font-weight: 700;
     }
 
     .content-section {
@@ -180,38 +203,41 @@
       line-height: 1.8;
     }
 
-    .card-grid {
+    .plan-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .mini-card {
+    .plan-card,
+    .check-card {
       padding: 22px;
       border-radius: 22px;
-      background: #f4fbff;
+      background: #f8fcff;
       border: 1px solid #d7efff;
     }
 
-    .mini-card h3 {
-      margin: 0 0 10px;
+    .plan-card h3,
+    .check-card h3 {
+      margin: 0 0 12px;
       color: #1c6fa6;
-      font-size: 1.14rem;
+      font-size: 1.16rem;
     }
 
-    .mini-card p,
-    .contact-list p {
+    .plan-card ul,
+    .check-card ul {
       margin: 0;
+      padding-left: 20px;
       color: #365b73;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    .works-list {
+    .progress-list {
       display: grid;
       gap: 16px;
     }
 
-    .work-item {
+    .progress-item {
       padding: 20px 22px;
       display: grid;
       grid-template-columns: auto 1fr;
@@ -222,7 +248,7 @@
       border: 1px solid #d7efff;
     }
 
-    .work-number {
+    .progress-icon {
       width: 42px;
       height: 42px;
       display: grid;
@@ -234,27 +260,26 @@
       box-shadow: 0 8px 18px rgba(47, 159, 232, 0.25);
     }
 
-    .work-item h3 {
+    .progress-item h3 {
       margin: 0 0 8px;
       color: #12324a;
     }
 
-    .work-item p {
+    .progress-item p {
       margin: 0;
       color: #365b73;
       line-height: 1.7;
     }
 
-    .contact-list {
+    .check-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
 
-    .contact-list a {
-      color: #1c6fa6;
-      font-weight: 700;
-      text-decoration: none;
+    .check-card {
+      background: #fffaf0;
+      border-color: #ffe1a8;
     }
 
     .site-footer {
@@ -275,8 +300,8 @@
         grid-template-columns: 1fr;
       }
 
-      .card-grid,
-      .contact-list {
+      .plan-grid,
+      .check-grid {
         grid-template-columns: 1fr;
       }
 
@@ -289,92 +314,115 @@
 <body>
   <nav class="site-nav" aria-label="主导航">
     <a href="#home">首页</a>
-    <a href="#interests">我的兴趣</a>
-    <a href="#works">我的作品</a>
-    <a href="#contact">联系方式</a>
+    <a href="#english-plan">英语计划</a>
+    <a href="#math-plan">数学计划</a>
+    <a href="#daily-checkin">每日打卡</a>
   </nav>
 
   <main class="page-shell">
     <section class="hero-card" id="home">
       <div>
-        <p class="eyebrow">Personal Website</p>
-        <h1>你好，我是小蓝</h1>
-        <p>欢迎来到我的个人介绍网站。我喜欢用清爽的设计记录学习、创作和生活，也期待把有趣的想法做成真正可用的小作品。</p>
+        <p class="eyebrow">Zhongkao Study Log</p>
+        <h1>中考学习记录站</h1>
+        <p>把每天的复习任务、错题整理和完成情况放在同一个页面里，清楚看到英语与数学的进步节奏，稳稳冲刺中考目标。</p>
         <div class="hero-actions">
-          <a class="start-button" href="#works">查看作品</a>
-          <a class="secondary-link" href="#contact">联系我</a>
+          <a class="start-button" href="#daily-checkin">今日打卡</a>
+          <a class="secondary-link" href="#english-plan">查看计划</a>
         </div>
       </div>
-      <div class="profile-badge" aria-label="个人头像装饰">☁️</div>
+      <div class="study-badge" aria-label="中考倒计时学习装饰">
+        <div class="badge-board">
+          <strong>📚</strong>
+          <span>每天进步一点点</span>
+        </div>
+      </div>
     </section>
 
-    <section class="content-section" id="interests">
-      <h2 class="section-title">我的兴趣</h2>
-      <p class="section-intro">我享受探索新知识，也喜欢把灵感沉淀成温暖、实用的小项目。</p>
-      <div class="card-grid">
-        <article class="mini-card">
-          <h3>网页设计</h3>
-          <p>关注排版、配色和交互细节，希望每个页面都简洁好用。</p>
+    <section class="content-section" id="english-plan">
+      <h2 class="section-title">英语计划</h2>
+      <p class="section-intro">围绕词汇、阅读、听力和作文四个方向安排复习，保证基础不丢分，表达更稳定。</p>
+      <div class="plan-grid">
+        <article class="plan-card">
+          <h3>词汇积累</h3>
+          <ul>
+            <li>每天背诵 30 个中考核心词</li>
+            <li>晚间复盘易混词与短语搭配</li>
+            <li>周末完成一次词汇小测</li>
+          </ul>
         </article>
-        <article class="mini-card">
-          <h3>摄影记录</h3>
-          <p>用镜头收集天空、城市和旅途中的小瞬间。</p>
+        <article class="plan-card">
+          <h3>阅读训练</h3>
+          <ul>
+            <li>每天限时完成 2 篇阅读理解</li>
+            <li>标记定位句和选项干扰点</li>
+            <li>整理生词到个人词汇本</li>
+          </ul>
         </article>
-        <article class="mini-card">
-          <h3>阅读学习</h3>
-          <p>喜欢科技、设计与成长类内容，让自己持续进步。</p>
+        <article class="plan-card">
+          <h3>作文提升</h3>
+          <ul>
+            <li>每周仿写 2 篇优秀范文</li>
+            <li>积累开头、过渡和结尾句式</li>
+            <li>用评分标准检查语法错误</li>
+          </ul>
         </article>
       </div>
     </section>
 
-    <section class="content-section" id="works">
-      <h2 class="section-title">我的作品</h2>
-      <p class="section-intro">这里展示一些正在练习和完善中的小作品，未来会继续更新更多内容。</p>
-      <div class="works-list">
-        <article class="work-item">
-          <span class="work-number">01</span>
+    <section class="content-section" id="math-plan">
+      <h2 class="section-title">数学计划</h2>
+      <p class="section-intro">数学复习重点放在基础题速度、压轴题思路和错题二刷，让每一道题都有明确改进动作。</p>
+      <div class="progress-list">
+        <article class="progress-item">
+          <span class="progress-icon">1</span>
           <div>
-            <h3>个人介绍网页</h3>
-            <p>一个浅蓝色风格的个人主页，用来介绍兴趣、作品和联系方式。</p>
+            <h3>基础巩固</h3>
+            <p>每天完成 20 道计算、方程、函数基础题，训练审题和规范书写，目标是稳定拿下基础分。</p>
           </div>
         </article>
-        <article class="work-item">
-          <span class="work-number">02</span>
+        <article class="progress-item">
+          <span class="progress-icon">2</span>
           <div>
-            <h3>学习笔记合集</h3>
-            <p>整理前端学习过程中的知识点、实践心得和常用技巧。</p>
+            <h3>专题突破</h3>
+            <p>按周复习几何证明、二次函数、圆与相似等专题，记录常用辅助线和解题模型。</p>
           </div>
         </article>
-        <article class="work-item">
-          <span class="work-number">03</span>
+        <article class="progress-item">
+          <span class="progress-icon">3</span>
           <div>
-            <h3>灵感收藏板</h3>
-            <p>收集喜欢的配色、组件和创意，为后续项目提供参考。</p>
+            <h3>错题回炉</h3>
+            <p>每晚挑选 3 道典型错题重做，写清错误原因、正确方法和下次提醒，周日统一复盘。</p>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="content-section" id="contact">
-      <h2 class="section-title">联系方式</h2>
-      <p class="section-intro">如果你想交流想法、讨论项目，或者只是打个招呼，欢迎通过下面的方式联系我。</p>
-      <div class="contact-list">
-        <article class="mini-card">
-          <h3>邮箱</h3>
-          <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+    <section class="content-section" id="daily-checkin">
+      <h2 class="section-title">每日打卡</h2>
+      <p class="section-intro">用简单的记录表提醒自己完成关键任务，也给复盘留下清晰线索。</p>
+      <div class="check-grid">
+        <article class="check-card">
+          <h3>今日任务清单</h3>
+          <ul>
+            <li>英语单词 30 个：□ 已完成</li>
+            <li>英语阅读 2 篇：□ 已完成</li>
+            <li>数学基础题 20 道：□ 已完成</li>
+            <li>数学错题 3 道：□ 已完成</li>
+          </ul>
         </article>
-        <article class="mini-card">
-          <h3>GitHub</h3>
-          <p><a href="https://github.com/" target="_blank" rel="noreferrer">github.com/my-profile</a></p>
-        </article>
-        <article class="mini-card">
-          <h3>微信</h3>
-          <p>添加备注：个人网站</p>
+        <article class="check-card">
+          <h3>复盘记录</h3>
+          <ul>
+            <li>今日最高效时段：晚自习前 40 分钟</li>
+            <li>需要改进：阅读题先看题干再定位原文</li>
+            <li>明日重点：二次函数图像与应用题</li>
+            <li>鼓励自己：坚持打卡，稳步提分</li>
+          </ul>
         </article>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">© 2026 小蓝的个人介绍网站</footer>
+  <footer class="site-footer">© 2026 中考学习记录站｜认真复习，按时打卡</footer>
 </body>
 </html>
