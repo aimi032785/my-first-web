@@ -4,8 +4,70 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的第一个网站</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #dff3ff;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      color: #12324a;
+    }
+
+    .page-card {
+      width: min(90%, 640px);
+      padding: 56px 42px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.78);
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(74, 144, 176, 0.2);
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      margin: 0 0 32px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .start-button {
+      display: inline-block;
+      padding: 14px 32px;
+      border: 0;
+      border-radius: 999px;
+      background: #2f9fe8;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(47, 159, 232, 0.32);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .start-button:hover {
+      transform: translateY(-2px);
+      background: #1689d5;
+      box-shadow: 0 14px 28px rgba(47, 159, 232, 0.36);
+    }
+  </style>
 </head>
 <body>
-  <p>你好，这是我用 Codex 创建的第一个网页</p>
+  <main class="page-card">
+    <h1>我的第一个网站</h1>
+    <p>你好，这是我用 Codex 创建的第一个网页</p>
+    <button class="start-button" type="button">开始学习</button>
+  </main>
 </body>
 </html>
