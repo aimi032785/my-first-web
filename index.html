@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的第一个网站</title>
+  <title>我的第一个 AI 网页</title>
   <style>
     * {
       box-sizing: border-box;
@@ -24,9 +24,11 @@
       width: min(90%, 640px);
       padding: 56px 42px;
       text-align: center;
-      background: rgba(255, 255, 255, 0.78);
-      border-radius: 24px;
-      box-shadow: 0 18px 45px rgba(74, 144, 176, 0.2);
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.88);
+      border-radius: 28px;
+      box-shadow: 0 22px 55px rgba(74, 144, 176, 0.22);
+      backdrop-filter: blur(10px);
     }
 
     h1 {
@@ -34,6 +36,9 @@
       font-size: clamp(2.5rem, 6vw, 4.5rem);
       font-weight: 800;
       letter-spacing: 0.04em;
+      background: linear-gradient(120deg, #12324a, #1f8fd7);
+      background-clip: text;
+      color: transparent;
     }
 
     p {
@@ -61,13 +66,21 @@
       background: #1689d5;
       box-shadow: 0 14px 28px rgba(47, 159, 232, 0.36);
     }
+
+    .credit-note {
+      margin: 18px 0 0;
+      color: #5f7d92;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
   <main class="page-card">
-    <h1>我的第一个网站</h1>
+    <h1>我的第一个 AI 网页</h1>
     <p>你好，这是我用 Codex 创建的第一个网页</p>
     <button class="start-button" type="button">开始学习</button>
+    <p class="credit-note">这是我用 Codex 和 GitHub 创建的网站</p>
   </main>
 </body>
 </html>
