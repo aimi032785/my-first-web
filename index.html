@@ -468,11 +468,56 @@
       border: 1px solid #d7efff;
     }
 
+    .vocab-word-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+
     .vocab-grid strong {
       display: block;
-      margin-bottom: 5px;
       color: #1a75ad;
       font-size: 1.05rem;
+    }
+
+    .pronunciation-button {
+      min-width: 38px;
+      min-height: 38px;
+      padding: 7px 9px;
+      border: 1px solid #bfe7ff;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #1a75ad;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(47, 159, 232, 0.14);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .pronunciation-button:hover,
+    .pronunciation-button:focus-visible {
+      transform: translateY(-1px);
+      background: #e9f7ff;
+      box-shadow: 0 8px 18px rgba(47, 159, 232, 0.22);
+    }
+
+    .pronunciation-button:focus-visible {
+      outline: 3px solid rgba(47, 159, 232, 0.28);
+      outline-offset: 2px;
+    }
+
+    .speakable-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .speakable-line span:first-child {
+      flex: 1;
     }
 
     .vocab-grid span {
@@ -708,12 +753,13 @@
       <div class="day-block">
         <div class="audio-practice-card" aria-labelledby="day-1-audio-title">
           <h3 class="day-subtitle" id="day-1-audio-title">Day 1 核心句跟读</h3>
-          <p class="audio-practice-tip">点击播放按钮，跟读英文核心句 3 遍。</p>
-          <p class="english-sentence">Although English is difficult, I believe I can improve my ability and achieve my dream.</p>
+          <p class="audio-practice-tip">点击小喇叭按钮，跟读英文核心句 3 遍。</p>
+          <p class="english-sentence speakable-line">
+            <span>Although English is difficult, I believe I can improve my ability and achieve my dream.</span>
+            <button class="pronunciation-button" type="button" title="播放发音" aria-label="播放核心句发音" data-speak="Although English is difficult, I believe I can improve my ability and achieve my dream.">🔊</button>
+          </p>
           <div class="audio-actions">
-            <button class="speech-button" id="play-day-1-sentence" type="button">播放 Day 1 核心句</button>
-            <button class="speech-button speech-button--stop" id="stop-day-1-sentence" type="button">停止播放</button>
-            <button class="speech-button" id="play-day-1-words" type="button">朗读今日重点词</button>
+            <button class="speech-button speech-button--stop" id="stop-speaking" type="button">停止朗读</button>
           </div>
           <p class="speech-status is-hidden" id="speech-support-message" role="status">当前浏览器不支持语音朗读，请使用 Chrome 浏览器。</p>
         </div>
@@ -722,26 +768,26 @@
       <div class="day-block">
         <h3 class="day-subtitle">① 词汇清单</h3>
         <ul class="vocab-grid">
-          <li><strong>ability</strong><span>能力</span></li>
-          <li><strong>able</strong><span>能够的</span></li>
-          <li><strong>achieve</strong><span>实现；取得</span></li>
-          <li><strong>action</strong><span>行动</span></li>
-          <li><strong>active</strong><span>积极的</span></li>
-          <li><strong>activity</strong><span>活动</span></li>
-          <li><strong>advice</strong><span>建议，忠告</span></li>
-          <li><strong>advise</strong><span>建议，劝告</span></li>
-          <li><strong>afraid</strong><span>害怕的</span></li>
-          <li><strong>agree</strong><span>同意</span></li>
-          <li><strong>agreement</strong><span>协议；一致</span></li>
-          <li><strong>against</strong><span>反对</span></li>
-          <li><strong>allow</strong><span>允许</span></li>
-          <li><strong>although</strong><span>虽然</span></li>
-          <li><strong>alone</strong><span>独自的</span></li>
-          <li><strong>aloud</strong><span>大声地</span></li>
-          <li><strong>already</strong><span>已经</span></li>
-          <li><strong>amazing</strong><span>令人惊讶的</span></li>
-          <li><strong>appear</strong><span>出现</span></li>
-          <li><strong>answer</strong><span>回答；答案</span></li>
+          <li><div class="vocab-word-line"><strong>ability</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 ability 发音" data-speak="ability">🔊</button></div><span>能力</span></li>
+          <li><div class="vocab-word-line"><strong>able</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 able 发音" data-speak="able">🔊</button></div><span>能够的</span></li>
+          <li><div class="vocab-word-line"><strong>achieve</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 achieve 发音" data-speak="achieve">🔊</button></div><span>实现；取得</span></li>
+          <li><div class="vocab-word-line"><strong>action</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 action 发音" data-speak="action">🔊</button></div><span>行动</span></li>
+          <li><div class="vocab-word-line"><strong>active</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 active 发音" data-speak="active">🔊</button></div><span>积极的</span></li>
+          <li><div class="vocab-word-line"><strong>activity</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 activity 发音" data-speak="activity">🔊</button></div><span>活动</span></li>
+          <li><div class="vocab-word-line"><strong>advice</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 advice 发音" data-speak="advice">🔊</button></div><span>建议，忠告</span></li>
+          <li><div class="vocab-word-line"><strong>advise</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 advise 发音" data-speak="advise">🔊</button></div><span>建议，劝告</span></li>
+          <li><div class="vocab-word-line"><strong>afraid</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 afraid 发音" data-speak="afraid">🔊</button></div><span>害怕的</span></li>
+          <li><div class="vocab-word-line"><strong>agree</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 agree 发音" data-speak="agree">🔊</button></div><span>同意</span></li>
+          <li><div class="vocab-word-line"><strong>agreement</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 agreement 发音" data-speak="agreement">🔊</button></div><span>协议；一致</span></li>
+          <li><div class="vocab-word-line"><strong>against</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 against 发音" data-speak="against">🔊</button></div><span>反对</span></li>
+          <li><div class="vocab-word-line"><strong>allow</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 allow 发音" data-speak="allow">🔊</button></div><span>允许</span></li>
+          <li><div class="vocab-word-line"><strong>although</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 although 发音" data-speak="although">🔊</button></div><span>虽然</span></li>
+          <li><div class="vocab-word-line"><strong>alone</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 alone 发音" data-speak="alone">🔊</button></div><span>独自的</span></li>
+          <li><div class="vocab-word-line"><strong>aloud</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 aloud 发音" data-speak="aloud">🔊</button></div><span>大声地</span></li>
+          <li><div class="vocab-word-line"><strong>already</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 already 发音" data-speak="already">🔊</button></div><span>已经</span></li>
+          <li><div class="vocab-word-line"><strong>amazing</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 amazing 发音" data-speak="amazing">🔊</button></div><span>令人惊讶的</span></li>
+          <li><div class="vocab-word-line"><strong>appear</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 appear 发音" data-speak="appear">🔊</button></div><span>出现</span></li>
+          <li><div class="vocab-word-line"><strong>answer</strong><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放 answer 发音" data-speak="answer">🔊</button></div><span>回答；答案</span></li>
         </ul>
       </div>
 
@@ -845,22 +891,22 @@
       <div class="day-block">
         <h3 class="day-subtitle">⑤ 写作</h3>
         <ol class="output-list">
-          <li>Students should improve their learning ability by reading aloud every day.</li>
-          <li>Although English is difficult, I believe I can improve my ability and achieve my dream.</li>
-          <li>Parents should give children useful advice instead of getting angry.</li>
-          <li>Being active in class can help students understand knowledge better.</li>
-          <li>Some people agree with this idea, but others are against it.</li>
+          <li><div class="speakable-line"><span>Students should improve their learning ability by reading aloud every day.</span><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放句子发音" data-speak="Students should improve their learning ability by reading aloud every day.">🔊</button></div></li>
+          <li><div class="speakable-line"><span>Although English is difficult, I believe I can improve my ability and achieve my dream.</span><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放句子发音" data-speak="Although English is difficult, I believe I can improve my ability and achieve my dream.">🔊</button></div></li>
+          <li><div class="speakable-line"><span>Parents should give children useful advice instead of getting angry.</span><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放句子发音" data-speak="Parents should give children useful advice instead of getting angry.">🔊</button></div></li>
+          <li><div class="speakable-line"><span>Being active in class can help students understand knowledge better.</span><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放句子发音" data-speak="Being active in class can help students understand knowledge better.">🔊</button></div></li>
+          <li><div class="speakable-line"><span>Some people agree with this idea, but others are against it.</span><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放句子发音" data-speak="Some people agree with this idea, but others are against it.">🔊</button></div></li>
         </ol>
       </div>
 
       <div class="day-block">
         <h3 class="day-subtitle">⑥ 口语</h3>
         <ol class="output-list">
-          <li>I want to improve my English ability.</li>
-          <li>I usually read English aloud in the morning.</li>
-          <li>My teacher gave me some useful advice.</li>
-          <li>I think I should be more active in class.</li>
-          <li>I hope I can achieve my dream through hard work.</li>
+          <li><div class="speakable-line"><span>I want to improve my English ability.</span><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放句子发音" data-speak="I want to improve my English ability.">🔊</button></div></li>
+          <li><div class="speakable-line"><span>I usually read English aloud in the morning.</span><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放句子发音" data-speak="I usually read English aloud in the morning.">🔊</button></div></li>
+          <li><div class="speakable-line"><span>My teacher gave me some useful advice.</span><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放句子发音" data-speak="My teacher gave me some useful advice.">🔊</button></div></li>
+          <li><div class="speakable-line"><span>I think I should be more active in class.</span><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放句子发音" data-speak="I think I should be more active in class.">🔊</button></div></li>
+          <li><div class="speakable-line"><span>I hope I can achieve my dream through hard work.</span><button class="pronunciation-button" type="button" title="播放发音" aria-label="播放句子发音" data-speak="I hope I can achieve my dream through hard work.">🔊</button></div></li>
         </ol>
       </div>
 
@@ -1017,33 +1063,9 @@
   <footer class="site-footer">© 2026 30天中考英语核心词汇训练站｜按词族理解，按场景输出</footer>
 
   <script>
-    const dayOneCoreSentence = "Although English is difficult, I believe I can improve my ability and achieve my dream.";
-    const dayOneKeyWords = [
-      "ability",
-      "able",
-      "achieve",
-      "action",
-      "active",
-      "activity",
-      "advice",
-      "advise",
-      "afraid",
-      "agree",
-      "agreement",
-      "against",
-      "allow",
-      "although",
-      "alone",
-      "aloud",
-      "already",
-      "amazing",
-      "appear",
-      "answer"
-    ];
-    const playDayOneButton = document.getElementById("play-day-1-sentence");
-    const playDayOneWordsButton = document.getElementById("play-day-1-words");
-    const stopDayOneButton = document.getElementById("stop-day-1-sentence");
     const speechSupportMessage = document.getElementById("speech-support-message");
+    const stopSpeakingButton = document.getElementById("stop-speaking");
+    const pronunciationButtons = document.querySelectorAll("[data-speak]");
 
     const showSpeechSupportMessage = () => {
       speechSupportMessage.classList.remove("is-hidden");
@@ -1059,43 +1081,36 @@
       return true;
     };
 
-    const createEnglishUtterance = (text) => {
+    function stopSpeaking() {
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    function speakText(text) {
+      if (!canSpeak()) {
+        return;
+      }
+
+      stopSpeaking();
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = "en-US";
       utterance.rate = 0.85;
       utterance.volume = 1;
-      return utterance;
-    };
+      window.speechSynthesis.speak(utterance);
+    }
 
     if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === "undefined") {
       showSpeechSupportMessage();
     }
 
-    playDayOneButton.addEventListener("click", () => {
-      if (!canSpeak()) {
-        return;
-      }
-
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(createEnglishUtterance(dayOneCoreSentence));
-    });
-
-    playDayOneWordsButton.addEventListener("click", () => {
-      if (!canSpeak()) {
-        return;
-      }
-
-      window.speechSynthesis.cancel();
-      dayOneKeyWords.forEach((word) => {
-        window.speechSynthesis.speak(createEnglishUtterance(word));
+    pronunciationButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        speakText(button.dataset.speak);
       });
     });
 
-    stopDayOneButton.addEventListener("click", () => {
-      if (window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-      }
-    });
+    stopSpeakingButton.addEventListener("click", stopSpeaking);
   </script>
 </body>
 </html>
