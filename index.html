@@ -206,7 +206,10 @@
     }
 
     .goal-grid,
-    .scene-grid {
+    .scene-grid,
+    .lesson-grid,
+    .quiz-grid,
+    .review-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
@@ -216,7 +219,10 @@
     .flow-item,
     .word-card,
     .sentence-card,
-    .scene-card {
+    .scene-card,
+    .lesson-card,
+    .quiz-card,
+    .review-mini-card {
       padding: 22px;
       border-radius: 22px;
       background: #f8fcff;
@@ -233,7 +239,10 @@
     .goal-card p,
     .scene-card p,
     .word-card p,
-    .sentence-card p {
+    .sentence-card p,
+    .lesson-card p,
+    .quiz-card p,
+    .review-mini-card p {
       margin-bottom: 0;
       color: #365b73;
       line-height: 1.75;
@@ -266,7 +275,10 @@
     .flow-item h3,
     .scene-card h3,
     .word-card h3,
-    .sentence-card h3 {
+    .sentence-card h3,
+    .lesson-card h3,
+    .quiz-card h3,
+    .review-mini-card h3 {
       margin: 0 0 8px;
       color: #12324a;
       font-size: 1.16rem;
@@ -348,6 +360,103 @@
       font-weight: 800;
     }
 
+    .day-block {
+      margin-top: 26px;
+    }
+
+    .day-block:first-of-type {
+      margin-top: 0;
+    }
+
+    .day-subtitle {
+      margin: 0 0 16px;
+      color: #1c6fa6;
+      font-size: 1.35rem;
+    }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .vocab-grid li {
+      padding: 14px;
+      border-radius: 18px;
+      background: #f1faff;
+      border: 1px solid #d7efff;
+    }
+
+    .vocab-grid strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #1a75ad;
+      font-size: 1.05rem;
+    }
+
+    .vocab-grid span {
+      color: #365b73;
+      font-size: 0.94rem;
+    }
+
+    .lesson-grid,
+    .quiz-grid,
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .lesson-card ul,
+    .quiz-card ol,
+    .review-mini-card ul,
+    .output-list {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: #365b73;
+      line-height: 1.8;
+    }
+
+    .lesson-card li,
+    .quiz-card li,
+    .review-mini-card li,
+    .output-list li {
+      margin-bottom: 8px;
+    }
+
+    .highlight-note {
+      margin: 14px 0 0;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #e9f7ff;
+      color: #1c6fa6;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .output-list {
+      display: grid;
+      gap: 10px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .output-list li {
+      margin-bottom: 0;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #f8fcff;
+      border: 1px solid #d7efff;
+    }
+
+    .blank-word {
+      color: #1c6fa6;
+      font-weight: 800;
+    }
+
     .scene-grid {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -362,7 +471,11 @@
 
     @media (max-width: 900px) {
       .goal-grid,
-      .scene-grid {
+      .scene-grid,
+      .vocab-grid,
+      .lesson-grid,
+      .quiz-grid,
+      .review-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -382,7 +495,11 @@
       }
 
       .goal-grid,
-      .scene-grid {
+      .scene-grid,
+      .vocab-grid,
+      .lesson-grid,
+      .quiz-grid,
+      .review-grid {
         grid-template-columns: 1fr;
       }
 
@@ -503,40 +620,219 @@
     </section>
 
     <section class="content-section" id="day-1">
-      <h2 class="section-title">Day 1 示例</h2>
-      <p class="section-intro">先用20个基础词体验“词族理解 + 场景输出”的学习方式。</p>
-      <div class="day-grid">
-        <article class="word-card">
-          <h3>今日重点词</h3>
-          <ul class="word-list">
-            <li>ability</li>
-            <li>able</li>
-            <li>achieve</li>
-            <li>action</li>
-            <li>active</li>
-            <li>activity</li>
-            <li>advice</li>
-            <li>advise</li>
-            <li>afraid</li>
-            <li>agree</li>
-            <li>agreement</li>
-            <li>against</li>
-            <li>allow</li>
-            <li>although</li>
-            <li>alone</li>
-            <li>aloud</li>
-            <li>already</li>
-            <li>amazing</li>
-            <li>appear</li>
-            <li>answer</li>
-          </ul>
-        </article>
-        <article class="sentence-card">
-          <h3>核心句</h3>
-          <p class="english-sentence">Although learning English is difficult, I believe I can improve my ability and achieve my goal.</p>
-          <h3>中文</h3>
-          <p>虽然学英语很难，但我相信我能提高能力并实现目标。</p>
-        </article>
+      <h2 class="section-title">Day 1 完整学习内容</h2>
+      <p class="section-intro">先用20个基础词完成“词汇清单 → 破译 → 扩词 → 场景 → 写作 → 口语 → 小测 → 复盘卡”的完整闭环。</p>
+
+      <div class="day-block">
+        <h3 class="day-subtitle">① 词汇清单</h3>
+        <ul class="vocab-grid">
+          <li><strong>ability</strong><span>能力；才能</span></li>
+          <li><strong>able</strong><span>能够的；有能力的</span></li>
+          <li><strong>achieve</strong><span>实现；达到；取得</span></li>
+          <li><strong>action</strong><span>行动；行为；措施</span></li>
+          <li><strong>active</strong><span>积极的；活跃的</span></li>
+          <li><strong>activity</strong><span>活动；行为</span></li>
+          <li><strong>advice</strong><span>建议；忠告</span></li>
+          <li><strong>advise</strong><span>建议；劝告</span></li>
+          <li><strong>afraid</strong><span>害怕的；担心的</span></li>
+          <li><strong>agree</strong><span>同意；赞成</span></li>
+          <li><strong>agreement</strong><span>协议；一致；同意</span></li>
+          <li><strong>against</strong><span>反对；违背；靠着</span></li>
+          <li><strong>allow</strong><span>允许；准许</span></li>
+          <li><strong>although</strong><span>虽然；尽管</span></li>
+          <li><strong>alone</strong><span>独自；单独的</span></li>
+          <li><strong>aloud</strong><span>大声地；出声地</span></li>
+          <li><strong>already</strong><span>已经</span></li>
+          <li><strong>amazing</strong><span>令人惊奇的；很棒的</span></li>
+          <li><strong>appear</strong><span>出现；似乎</span></li>
+          <li><strong>answer</strong><span>回答；答案</span></li>
+        </ul>
+      </div>
+
+      <div class="day-block">
+        <h3 class="day-subtitle">② 破译</h3>
+        <div class="lesson-grid">
+          <article class="lesson-card">
+            <h3>able / ability</h3>
+            <ul>
+              <li><strong>able</strong> 是形容词，常用结构是 <strong>be able to do sth.</strong>，表示“能够做某事”。</li>
+              <li><strong>ability</strong> 是名词，表示“能力”，常搭配 <strong>improve/develop/show ability</strong>。</li>
+            </ul>
+          </article>
+          <article class="lesson-card">
+            <h3>act / action / active / activity / actor / actress</h3>
+            <ul>
+              <li><strong>act</strong> 表示“行动；表演”，是这一组的核心。</li>
+              <li><strong>action</strong> 是“行动/措施”；<strong>active</strong> 是“积极的/活跃的”；<strong>activity</strong> 是“活动”。</li>
+              <li><strong>actor</strong> 是男演员或泛指演员；<strong>actress</strong> 是女演员。</li>
+            </ul>
+          </article>
+          <article class="lesson-card">
+            <h3>advice / advise</h3>
+            <ul>
+              <li><strong>advice</strong> 是名词“建议”，通常不可数：a piece of advice。</li>
+              <li><strong>advise</strong> 是动词“建议”，常用 <strong>advise sb. to do sth.</strong>。</li>
+            </ul>
+          </article>
+          <article class="lesson-card">
+            <h3>agree / agreement / against</h3>
+            <ul>
+              <li><strong>agree</strong> 是动词“同意”；<strong>agreement</strong> 是名词“同意/协议”。</li>
+              <li><strong>against</strong> 表示“反对”，常与 agree 形成观点对比：agree with / be against。</li>
+            </ul>
+          </article>
+          <article class="lesson-card">
+            <h3>alone / lonely</h3>
+            <ul>
+              <li><strong>alone</strong> 强调客观状态“独自一人”，不一定难过。</li>
+              <li><strong>lonely</strong> 强调主观感受“孤独的”，带情绪色彩。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3 class="day-subtitle">③ 扩词</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>核心词</th>
+                <th>词族扩展</th>
+                <th>常用搭配</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="family-word">able</td>
+                <td>able, ability, be able to</td>
+                <td>improve ability, be able to communicate, learning ability</td>
+              </tr>
+              <tr>
+                <td class="family-word">act</td>
+                <td>act, action, active, activity, actor, actress</td>
+                <td>take action, stay active, outdoor activity</td>
+              </tr>
+              <tr>
+                <td class="family-word">advise</td>
+                <td>advise, advice, adviser</td>
+                <td>give advice, follow advice, advise students to read aloud</td>
+              </tr>
+              <tr>
+                <td class="family-word">agree</td>
+                <td>agree, agreement, disagree, against</td>
+                <td>agree with a view, reach an agreement, be against the rule</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3 class="day-subtitle">④ 场景</h3>
+        <div class="scene-grid">
+          <article class="scene-card">
+            <h3>教育</h3>
+            <p>Students can improve their learning ability when teachers give clear advice and allow them to answer aloud.</p>
+          </article>
+          <article class="scene-card">
+            <h3>个人成长</h3>
+            <p>People are more likely to achieve their goals if they take action and stay active every day.</p>
+          </article>
+          <article class="scene-card">
+            <h3>社会规则</h3>
+            <p>Although some people are against strict rules, an agreement can appear when both sides communicate calmly.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3 class="day-subtitle">⑤ 写作</h3>
+        <ol class="output-list">
+          <li>Education should help students develop the ability to think independently and take action in real situations.</li>
+          <li>Although online learning is convenient, students still need active communication with teachers and classmates.</li>
+          <li>Governments should allow young people to join community activities because these experiences can build confidence.</li>
+          <li>Many people are afraid of failure, but useful advice can help them achieve long-term goals.</li>
+          <li>A clear agreement between schools and parents can provide better answers to students' learning problems.</li>
+        </ol>
+      </div>
+
+      <div class="day-block">
+        <h3 class="day-subtitle">⑥ 口语</h3>
+        <ol class="output-list">
+          <li>I think my English ability has improved because I read aloud and answer questions every day.</li>
+          <li>I am not afraid of making mistakes, as mistakes can show me what I need to practise.</li>
+          <li>My teacher advised me to stay active in class, and I already feel more confident.</li>
+          <li>I usually study alone in the evening, but I do not feel lonely because I have a clear goal.</li>
+          <li>It was amazing to see how small daily actions helped me achieve better results.</li>
+        </ol>
+      </div>
+
+      <div class="day-block">
+        <h3 class="day-subtitle">⑦ 小测</h3>
+        <div class="quiz-grid">
+          <article class="quiz-card">
+            <h3>英译中 5题</h3>
+            <ol>
+              <li>ability</li>
+              <li>achieve</li>
+              <li>advice</li>
+              <li>against</li>
+              <li>although</li>
+            </ol>
+          </article>
+          <article class="quiz-card">
+            <h3>中译英 5题</h3>
+            <ol>
+              <li>允许</li>
+              <li>已经</li>
+              <li>令人惊奇的</li>
+              <li>出现；似乎</li>
+              <li>回答；答案</li>
+            </ol>
+          </article>
+          <article class="quiz-card">
+            <h3>选词填空 5题</h3>
+            <p class="highlight-note">备选词：active / advice / alone / agree / achieve</p>
+            <ol>
+              <li>Students should stay <span class="blank-word">_____</span> during group discussions.</li>
+              <li>Good <span class="blank-word">_____</span> can help learners avoid common mistakes.</li>
+              <li>I prefer to study <span class="blank-word">_____</span> when I need deep focus.</li>
+              <li>Many people <span class="blank-word">_____</span> that exercise is important for health.</li>
+              <li>It takes time and effort to <span class="blank-word">_____</span> a big goal.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3 class="day-subtitle">⑧ 复盘卡</h3>
+        <div class="review-grid">
+          <article class="review-mini-card">
+            <h3>错词复活卡</h3>
+            <ul>
+              <li><strong>advice</strong>：不可数名词，不说 an advice；可说 a piece of advice。</li>
+              <li><strong>although</strong>：后面接完整句，不和 but 同时使用。</li>
+              <li><strong>alone</strong>：强调独自一人；不要直接等同 lonely。</li>
+            </ul>
+          </article>
+          <article class="review-mini-card">
+            <h3>词族卡</h3>
+            <ul>
+              <li>able → ability → be able to</li>
+              <li>act → action → active → activity → actor → actress</li>
+              <li>agree → agreement；against 表示反对方向</li>
+            </ul>
+          </article>
+          <article class="review-mini-card">
+            <h3>IELTS场景表达卡</h3>
+            <ul>
+              <li>教育：improve learning ability / give useful advice / answer aloud</li>
+              <li>成长：take action / achieve a goal / be afraid of failure</li>
+              <li>社会：reach an agreement / be against a policy / allow public discussion</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
