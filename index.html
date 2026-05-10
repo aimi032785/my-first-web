@@ -317,6 +317,71 @@
       background: #f1faff;
     }
 
+    .audio-practice-card {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+      border-radius: 22px;
+      background: #f1faff;
+      border: 1px solid #d7efff;
+    }
+
+    .audio-practice-card p {
+      margin: 0;
+      color: #365b73;
+      line-height: 1.75;
+    }
+
+    .audio-practice-tip {
+      color: #1c6fa6;
+      font-weight: 800;
+    }
+
+    .audio-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .speech-button {
+      min-height: 46px;
+      padding: 12px 22px;
+      border: 0;
+      border-radius: 999px;
+      background: #2f9fe8;
+      color: #fff;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(47, 159, 232, 0.28);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .speech-button:hover,
+    .speech-button:focus-visible {
+      transform: translateY(-2px);
+      background: #1689d5;
+      box-shadow: 0 14px 26px rgba(47, 159, 232, 0.34);
+    }
+
+    .speech-button:focus-visible {
+      outline: 3px solid rgba(47, 159, 232, 0.28);
+      outline-offset: 3px;
+    }
+
+    .speech-button--stop {
+      background: #ecf8ff;
+      color: #1a75ad;
+      border: 1px solid #bfe7ff;
+      box-shadow: none;
+    }
+
+    .speech-button--stop:hover,
+    .speech-button--stop:focus-visible {
+      background: #dff2ff;
+      box-shadow: 0 10px 22px rgba(47, 159, 232, 0.16);
+    }
+
     .english-sentence {
       font-size: 1.08rem;
       font-weight: 800;
@@ -624,6 +689,18 @@
       <p class="section-intro">先用20个基础词完成“词汇清单 → 破译 → 扩词 → 场景 → 写作 → 口语 → 小测 → 复盘卡”的完整闭环。</p>
 
       <div class="day-block">
+        <div class="audio-practice-card" aria-labelledby="day-1-audio-title">
+          <h3 class="day-subtitle" id="day-1-audio-title">Day 1 核心句跟读</h3>
+          <p class="audio-practice-tip">点击播放按钮，跟读英文核心句 3 遍。</p>
+          <p class="english-sentence">Although learning English is difficult, I believe I can improve my ability and achieve my goal.</p>
+          <div class="audio-actions">
+            <button class="speech-button" id="play-day-1-sentence" type="button">播放 Day 1 核心句</button>
+            <button class="speech-button speech-button--stop" id="stop-day-1-sentence" type="button">停止播放</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-block">
         <h3 class="day-subtitle">① 词汇清单</h3>
         <ul class="vocab-grid">
           <li><strong>ability</strong><span>能力</span></li>
@@ -919,5 +996,33 @@
   </main>
 
   <footer class="site-footer">© 2026 30天 IELTS 词汇训练站｜按词族理解，按场景输出</footer>
+
+  <script>
+    const dayOneCoreSentence = "Although learning English is difficult, I believe I can improve my ability and achieve my goal.";
+    const playDayOneButton = document.getElementById("play-day-1-sentence");
+    const stopDayOneButton = document.getElementById("stop-day-1-sentence");
+
+    playDayOneButton.addEventListener("click", () => {
+      if (!window.speechSynthesis) {
+        alert("当前浏览器不支持语音播放，请尝试使用新版 Chrome、Edge 或 Safari。");
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(dayOneCoreSentence);
+      utterance.lang = "en-US";
+      utterance.rate = 0.85;
+      utterance.volume = 1;
+
+      window.speechSynthesis.speak(utterance);
+    });
+
+    stopDayOneButton.addEventListener("click", () => {
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+    });
+  </script>
 </body>
 </html>
